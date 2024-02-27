@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BeeckerWebLurker.Logic.HttpLogic;
 
 namespace BeeckerWebLurker.Core
 {
@@ -10,7 +11,8 @@ namespace BeeckerWebLurker.Core
     {
         public static void StartEngine()
         {
-            UserModel user = WebLogic.StartSession();
+            WebLogic user = WebLogic.StartSession();
+
         }
     }
 }

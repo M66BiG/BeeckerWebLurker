@@ -3,6 +3,7 @@ global using BeeckerWebLurker.Enums;
 global using BeeckerWebLurker.Interfaces;
 global using BeeckerWebLurker.Logic;
 global using BeeckerWebLurker.Logic.User;
+global using BeeckerWebLurker.Logic.HttpLogic;
 
 global using System.Net.Http;
 global using System.Linq;
