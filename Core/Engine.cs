@@ -13,6 +13,9 @@ namespace BeeckerWebLurker.Core
         {
             WebLogic user = WebLogic.StartSession();
 
+            TempTask.test(user);
+
+            Console.WriteLine("Ende");
         }
     }
 }

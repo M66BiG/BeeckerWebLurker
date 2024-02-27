@@ -3,7 +3,7 @@
 internal class WebLogic
 {
     UserModel user { get; set; }
-    HttpClient client { get; set; }
+    public HttpClient client { get; set; }
 
     private WebLogic()
     {
