@@ -10,7 +10,7 @@ namespace BeeckerWebLurker.Core
     {
         public static void StartEngine()
         {
-            
+            UserModel user = WebLogic.StartSession();
         }
     }
 }
