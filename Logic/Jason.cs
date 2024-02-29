@@ -1,11 +1,11 @@
 ﻿namespace BeeckerWebLurker.Logic;
 
-internal class Jason
+public class Jason
 {
     public async Task<RequestModel[]> GetJsonTask(WebLogic Session)
     {
         Console.WriteLine("Await Methode fürs Füllen wird gestartet");
-        RequestModel[]? People = await Session.client.GetFromJsonAsync<RequestModel[]>(Session.client.BaseAddress + "posts");
+        RequestModel[]? People = await Session.Client.GetFromJsonAsync<RequestModel[]>(Session.Client.BaseAddress + "posts");
         Console.WriteLine("Await Methode fürs Füllen wird beendet");
 
         return People;

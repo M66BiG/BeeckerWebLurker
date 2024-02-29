@@ -1,29 +1,22 @@
 ﻿namespace BeeckerWebLurker.Logic.HttpLogic;
 
-internal class WebLogic
+public class WebLogic
 {
-    UserModel user { get; set; }
-    public HttpClient client { get; set; }
+    public UserModel User { get; set; }
+    public HttpClient Client { get; set; }
 
-    private WebLogic()
+    public WebLogic()
     {
-        user = UserModel.GetUserCredentials();
-        client = StartHttpClient();
+        User = new UserModel();
+        Client = CreateHttpClient();
     }
 
-    public static WebLogic StartSession()
+    private HttpClient CreateHttpClient()
     {
-        WebLogic Session = new();
-
-
-        return Session;
-    }
-
-    private HttpClient StartHttpClient()
-    {
-        HttpClient client = new HttpClient();
-
-        client.BaseAddress = new Uri("https://jsonplaceholder.typicode.com/");
+        HttpClient client = new HttpClient
+        {
+            BaseAddress = new Uri("https://jsonplaceholder.typicode.com/")
+        };
 
         return client;
     }

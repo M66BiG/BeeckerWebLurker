@@ -1,9 +1,10 @@
 ﻿namespace BeeckerWebLurker.Logic.User;
+
 public class Token
 {
-    public string? token_type { get; set; }
-    public int? expires_in { get; set; }
-    public string? access_token { get; set; }
-    public string? scope { get; set; }
-    public string? refresh_token { get; set; }
+    public string? Token_type { get; set; }
+    public int? Expires_in { get; set; }
+    public string? Access_token { get; set; }
+    public string? Scope { get; set; }
+    public string? Refresh_token { get; set; }
 }
