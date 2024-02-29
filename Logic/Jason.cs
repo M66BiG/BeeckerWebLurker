@@ -2,15 +2,17 @@
 
 internal class Jason
 {
-    public static async Task<RequestModel[]> GetJsonTask(WebLogic Session)
+    public async Task<RequestModel[]> GetJsonTask(WebLogic Session)
     {
         Console.WriteLine("Await Methode fürs Füllen wird gestartet");
-        RequestModel[] People = await Session.client.GetFromJsonAsync<RequestModel[]>(Session.client.BaseAddress + "posts"); //warum wird hiernach alles geskippt askfdnsaf
+        RequestModel[]? People = await Session.client.GetFromJsonAsync<RequestModel[]>(Session.client.BaseAddress + "posts");
         Console.WriteLine("Await Methode fürs Füllen wird beendet");
+
         return People;
+        
     }
 
-    public static void printPeople(RequestModel[] People)
+    public void printPeople(RequestModel[] People)
     {
         if (People != null)
         {
@@ -24,14 +26,12 @@ internal class Jason
             }
         }
     }
-    public static async void StartLogic(WebLogic Session)
+    public static async Task StartLogic(WebLogic Session)
     {
-        Console.WriteLine("Async Methode wird gestartet");
-        RequestModel[]? People = await GetJsonTask(Session);
-        Console.WriteLine("Async Methode wird zuende");
+        Jason jason = new();
 
-        Console.WriteLine("Print wird gestartet");
-        printPeople(People);
-        Console.WriteLine("Print wird zuende");
+        jason.printPeople(await jason.GetJsonTask(Session));
+
+
     }
 }

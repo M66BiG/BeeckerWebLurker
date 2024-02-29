@@ -1,22 +1,23 @@
-﻿namespace BeeckerWebLurker.Core;
+﻿using System.Diagnostics;
+namespace BeeckerWebLurker.Core;
+
 
 internal class Engine
 {
     public static void StartEngine()
     {
-        while (true)
-        {
-            WebLogic user = WebLogic.StartSession();
 
-            Jason.StartLogic(user);
+        WebLogic user = WebLogic.StartSession();
 
+        Console.WriteLine("Timer startet");
+        Stopwatch stopwatch = Stopwatch.StartNew();
 
+        Jason.StartLogic(user).Wait();
+        stopwatch.Stop();
+        Console.WriteLine("Ende");
 
-            Console.WriteLine("Timer startet");
-            Task.Delay(10000);
-            Console.WriteLine("Ende");
-            break;
-        }
-        
+        Console.WriteLine("Ende"); Console.WriteLine("Ende"); Console.WriteLine("Ende"); Console.WriteLine("Ende");
+
+        Console.WriteLine($"{stopwatch.ElapsedMilliseconds}");
     }
 }
