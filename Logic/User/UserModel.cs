@@ -1,15 +1,18 @@
-﻿namespace BeeckerWebLurker.Logic.User
+﻿using System.Runtime.CompilerServices;
+
+namespace BeeckerWebLurker.Logic.User
 {
     internal class UserModel
     {
-        /*private readonly string client_id = "kdhvMUKvjOlH849S4a-WqAmR";
-        private readonly string client_secret = "x8eKkUGkEdaG8FIFGp9Fa3hW-Nex5sSNnNMRgkF6BMvLXF0G";
-        private readonly string login = "cloudy-shrike@example.com";
-        private readonly string password = "Good-Falcon-22";*/
+        private readonly string client_id = "b3aBZENcX3J5Vd-VaOqJPHAu";
+        private readonly string client_secret = "dAM0HaxeEfquz5Ih1ZAR74Un8HwBlt_2RLUtEot6blCQLgM3";
+        private readonly string login = "handsome-nightingale@example.com";
+        private readonly string password = "Envious-Heron-80";
         private Token? token { get; set; }
 
+        private string scope = "photo+offline_access";
 
-        private string state { get; set; }
+        private string? state { get; set; }
 
         public static UserModel GetUserCredentials()
         {
