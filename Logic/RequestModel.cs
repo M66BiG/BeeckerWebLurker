@@ -1,4 +1,5 @@
 ﻿namespace BeeckerWebLurker.Logic;
+
 public class RequestModel
 {
     public int userId { get; set; }

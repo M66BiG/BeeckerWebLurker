@@ -1,6 +1,6 @@
 ﻿namespace BeeckerWebLurker.Interfaces;
 
-internal class CustomInterface
+public interface ICustomInterface
 {
 
 }
