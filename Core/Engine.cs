@@ -1,21 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BeeckerWebLurker.Logic.HttpLogic;
+﻿namespace BeeckerWebLurker.Core;
 
-namespace BeeckerWebLurker.Core
+internal class Engine
 {
-    internal class Engine
+    public static void StartEngine()
     {
-        public static void StartEngine()
+        while (true)
         {
             WebLogic user = WebLogic.StartSession();
 
-            TempTask.test(user);
+            Jason.StartLogic(user);
 
+
+
+            Console.WriteLine("Timer startet");
+            Task.Delay(10000);
             Console.WriteLine("Ende");
+            break;
         }
+        
     }
 }
