@@ -1,13 +1,10 @@
-﻿Console.WriteLine("Engine wird gestartet");
-WebLogic user = new WebLogic();
+﻿
+using BeeckerWebLurker.Core;
 
-Console.WriteLine("Timer startet");
-Stopwatch stopwatch = Stopwatch.StartNew();
-
-await Jason.StartLogic(user);
-stopwatch.Stop();
-
-Console.WriteLine("Ende");
-Console.WriteLine($"{stopwatch.ElapsedMilliseconds}");
-
-Console.ReadLine();
+internal class Program
+{
+    private static async Task Main(string[] args)
+    {
+        await Engine.StartEngine();
+    }
+}
