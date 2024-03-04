@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-namespace BeeckerWebLurker.Core;
+﻿namespace BeeckerWebLurker.Core;
 
 
 internal class Engine

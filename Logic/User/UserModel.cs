@@ -2,15 +2,15 @@
 
 public class UserModel
 {
-    /*private readonly string client_id = "kdhvMUKvjOlH849S4a-WqAmR";
-    private readonly string client_secret = "x8eKkUGkEdaG8FIFGp9Fa3hW-Nex5sSNnNMRgkF6BMvLXF0G";
-    private readonly string login = "cloudy-shrike@example.com";
-    private readonly string password = "Good-Falcon-22";*/
+    /*private readonly string client_id = "bNAt3YYE9rrSlMkM2bpFqyb0";
+    private readonly string client_secret = "MNIoMxpTCJNVt7wPSHGOvKjx1ghn3Va3fykqvSHGEofRgvrI";
+    private readonly string login = "wrong-angelfish@example.com";
+    private readonly string password = "Unsightly-Macaw-71";*/
 
     private Token? _token;
     private string _state;
 
-    private UserModel GetUserState(UserModel user, HttpClient client)
+    public UserModel GetUserState(UserModel user, HttpClient client)
     {
         return user;
     }
