@@ -7,20 +7,8 @@ internal class Engine
 {
     public static async Task StartEngine()
     {
-        Process.Start(new ProcessStartInfo("cmd", $"/c start {"www.google.de"}") { CreateNoWindow = true });
-
-        /*Console.WriteLine("Engine wird gestartet");
-        WebLogic user = new WebLogic();
-
-        Console.WriteLine("Timer startet");
-        Stopwatch stopwatch = Stopwatch.StartNew();
-
-        await Jason.StartLogic(user);
-        stopwatch.Stop();
-
-        Console.WriteLine("Ende");
-        Console.WriteLine($"{stopwatch.ElapsedMilliseconds}");
-
-        Console.ReadLine();*/
+        /*In dieser Funktion sollen die relevanten Variablen gespeichert werden, um Aktionen innerhalb des Clients durchzuführen. Ob das nötig ist, oder nicht wird sich im Laufe ergeben*/
+        AuthenticationFlow.StartAuthenticationFlow();
+        
     }
 }
