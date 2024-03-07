@@ -2,35 +2,23 @@
 
 internal class Jason
 {
-    public async Task<RequestModel[]> GetJsonTask(WebLogic Session)
+    public async Task GetJsonTask(WebLogic Session)
     {
         Console.WriteLine("Await Methode fürs Füllen wird gestartet");
-        RequestModel[]? People = await Session.client.GetFromJsonAsync<RequestModel[]>(Session.client.BaseAddress + "posts");
+
+        var temp = await Session.client.GetAsync(Session.client.BaseAddress);
+        var news = await temp.Content.ReadAsStringAsync();
+
+
         Console.WriteLine("Await Methode fürs Füllen wird beendet");
-
-        return People;
-        
     }
 
-    public void printPeople(RequestModel[] People)
-    {
-        if (People != null)
-        {
-            int i = 1;
-            foreach (RequestModel p in People)
-            {
-                Console.Write($"{i}. ");
-                Console.WriteLine(p.title);
-                Console.WriteLine(p.body);
-                i++;
-            }
-        }
-    }
+    
     public static async Task StartLogic(WebLogic Session)
     {
         Jason jason = new();
 
-        jason.printPeople(await jason.GetJsonTask(Session));
+        await jason.GetJsonTask(Session);
 
 
     }

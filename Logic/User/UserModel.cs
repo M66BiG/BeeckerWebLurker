@@ -4,15 +4,11 @@ namespace BeeckerWebLurker.Logic.User
 {
     internal class UserModel
     {
-        private readonly string client_id = "b3aBZENcX3J5Vd-VaOqJPHAu";
-        private readonly string client_secret = "dAM0HaxeEfquz5Ih1ZAR74Un8HwBlt_2RLUtEot6blCQLgM3";
-        private readonly string login = "handsome-nightingale@example.com";
-        private readonly string password = "Envious-Heron-80";
+        //private readonly string client_id = "T5dgem4mQLMCpuTFfu33a4PL";
+        //private readonly string client_secret = "0aZGglOeYmh4z4i48492_YXhs7l75L78dSouseUa3BjofOcG";
+        //private readonly string login = "puzzled-wren@example.com";
+        //private readonly string password = "Inexpensive-Elk-32";
         private Token? token { get; set; }
-
-        private string scope = "photo+offline_access";
-
-        private string? state { get; set; }
 
         public static UserModel GetUserCredentials()
         {
