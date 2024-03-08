@@ -1,27 +1,17 @@
-﻿using System.Runtime.CompilerServices;
+﻿namespace BeeckerWebLurker.Logic.User;
 
-namespace BeeckerWebLurker.Logic.User
+public class UserModel
 {
-    internal class UserModel
+    /*private readonly string client_id = "bNAt3YYE9rrSlMkM2bpFqyb0";
+    private readonly string client_secret = "MNIoMxpTCJNVt7wPSHGOvKjx1ghn3Va3fykqvSHGEofRgvrI";
+    private readonly string login = "wrong-angelfish@example.com";
+    private readonly string password = "Unsightly-Macaw-71";*/
+
+    private Token? _token;
+    private string _state;
+
+    public UserModel GetUserState(UserModel user, HttpClient client)
     {
-        //private readonly string client_id = "T5dgem4mQLMCpuTFfu33a4PL";
-        //private readonly string client_secret = "0aZGglOeYmh4z4i48492_YXhs7l75L78dSouseUa3BjofOcG";
-        //private readonly string login = "puzzled-wren@example.com";
-        //private readonly string password = "Inexpensive-Elk-32";
-        private Token? token { get; set; }
-
-        public static UserModel GetUserCredentials()
-        {
-            return new UserModel { };
-        }
-
-        private UserModel GetUserState(UserModel user, HttpClient client)
-        {
-            return user;
-        }
-
-
-
-
+        return user;
     }
 }

@@ -1,42 +1,23 @@
 ﻿namespace BeeckerWebLurker.Logic.HttpLogic;
 
-internal class WebLogic
+public class WebLogic
 {
-    public HttpClient client { get; set; }
-    //UserModel user { get; set; }
+    public UserModel User { get; set; }
+    public HttpClient Client { get; set; }
 
-    string response_type = "code";
-    string client_id = "T5dgem4mQLMCpuTFfu33a4PL";
-    string redirect_uri = "https://www.oauth.com/playground/authorization-code.html";
-    string scope = "photo+offlince_access";
-    public string state = "VV3vZLNdhJAgqC1R";
-
-    private WebLogic()
+    public WebLogic()
     {
-        //user = UserModel.GetUserCredentials();
-        client = StartHttpClient();
-        
+        User = new UserModel();
+        Client = CreateHttpClient();
     }
 
-    private HttpClient StartHttpClient()
+    private HttpClient CreateHttpClient()
     {
-        HttpClient client = new HttpClient();
-
-        client.BaseAddress = new Uri($"https://authorization-server.com/authorize?response_type={response_type}&client_id={client_id}&redirect_uri={redirect_uri}&scope={scope}&state={state}");
-
-        
+        HttpClient client = new HttpClient
+        {
+            BaseAddress = new Uri("https://jsonplaceholder.typicode.com/")
+        };
 
         return client;
     }
-
-    public static WebLogic StartSession()
-    {
-
-        WebLogic Session = new();
-
-
-        return Session;
-    }
-
-    
 }

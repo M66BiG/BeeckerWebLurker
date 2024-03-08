@@ -1,23 +1,14 @@
-﻿using System.Diagnostics;
+﻿using System;
+
 namespace BeeckerWebLurker.Core;
 
 
 internal class Engine
 {
-    public static void StartEngine()
+    public static async Task StartEngine()
     {
-
-        WebLogic user = WebLogic.StartSession();
-
-        Console.WriteLine("Timer startet");
-        Stopwatch stopwatch = Stopwatch.StartNew();
-
-        Jason.StartLogic(user).Wait();
-        stopwatch.Stop();
-        Console.WriteLine("Ende");
-
-        Console.WriteLine("Ende"); Console.WriteLine("Ende"); Console.WriteLine("Ende"); Console.WriteLine("Ende");
-
-        Console.WriteLine($"{stopwatch.ElapsedMilliseconds}");
+        /*In dieser Funktion sollen die relevanten Variablen gespeichert werden, um Aktionen innerhalb des Clients durchzuführen. Ob das nötig ist, oder nicht wird sich im Laufe ergeben*/
+        AuthenticationFlow.StartAuthenticationFlow();
+        
     }
 }

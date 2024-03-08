@@ -1,6 +1,6 @@
 ﻿namespace BeeckerWebLurker.Logic;
 
-internal class Jason
+public class Jason
 {
     public async Task GetJsonTask(WebLogic Session)
     {
