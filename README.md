@@ -2,7 +2,6 @@
 
 Dieses Programm soll folgende Aufgaben zukünftig ermöglichen.
 
-- Soll ein HTTP Client erstellen.
-- Soll sich mittels OAuth 2.0 irgendwo einloggen können
-- Soll dann Platform spezifische Sachen tun können
-- Soll Platformspezifisch Sachen Auslesen
+- Soll ein RestClient erstellen.
+- Soll sich mittels OAuth 2.0 auf Youtube einloggen können
+- Soll CRUD Operations durchführen können. In diesem Fall mit Youtube Playlists.
