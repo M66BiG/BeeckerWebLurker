@@ -1,6 +1,6 @@
 ﻿namespace BeeckerWebLurker.Logic.HttpLogic;
 
-public class APIClient : IDisposable
+public class APIClient
 {
     private readonly RestClientOptions? _options;
     public RestClient? Client;
@@ -30,17 +30,6 @@ public class APIClient : IDisposable
         Console.WriteLine("");
         APIClient Session = new(Endpoints.baseUri, credentials.client_id, credentials.client_secret);
 
-
-
-
-        //Process.Start(new ProcessStartInfo("cmd", $"/c start {Session.Client.BaseAddress}") { CreateNoWindow = true });
     }
 
-
-
-    public void Dispose()
-    {
-        Client?.Dispose();
-        GC.SuppressFinalize(this);
-    }
 }

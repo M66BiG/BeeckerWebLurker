@@ -1,6 +1,5 @@
 ﻿namespace BeeckerWebLurker.Logic.Auth;
 
-
 /*
  Klasse um Datei auszuwerten
  */
@@ -8,7 +7,6 @@ public class Credentials
 {
     public string? client_id;
     public string? client_secret;
-
 
     //Funktion um client_id und client_secret zu erlangen
     public static Credentials GetCredentials()
@@ -43,7 +41,6 @@ public class Credentials
     {
         Console.WriteLine("1: Zuhause\n2: Arbeit\n3: Neuer Dateipfad (custom)");
         int choice = Convert.ToInt32(Console.ReadLine());
-
 
         return choice switch
         {

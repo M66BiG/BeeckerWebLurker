@@ -11,3 +11,5 @@ global using RestSharp;
 global using RestSharp.Authenticators;
 
 global using Newtonsoft.Json;
+
+global using Microsoft.Extensions.Hosting;
