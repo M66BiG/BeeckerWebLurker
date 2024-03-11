@@ -13,7 +13,8 @@ public class Credentials
     //Funktion um client_id und client_secret zu erlangen
     public static Credentials GetCredentials()
     {
-        string filepath = GetFilePath();
+        Credentials c = new();
+        string filepath = c.GetFilePath(c);
         string jsonContent = "";
 
         try
@@ -38,7 +39,7 @@ public class Credentials
     }
 
     //Funktion um Dateipfad zu bestimmen
-    private static string GetFilePath()
+    private string GetFilePath(Credentials c)
     {
         Console.WriteLine("1: Zuhause\n2: Arbeit\n3: Neuer Dateipfad (custom)");
         int choice = Convert.ToInt32(Console.ReadLine());
@@ -48,13 +49,13 @@ public class Credentials
         {
             1 => "",
             2 => "C:/Users/SipahiM/Desktop/clientsecret.json",
-            3 => CustomFilePath(),
+            3 => c.CustomFilePath(),
             _ => ""
         };
     }
 
     //Rekursive Funktion für Custom Dateipfad einzulesen
-    private static string CustomFilePath()
+    private string CustomFilePath()
     {
         Console.WriteLine("Bitte tippe den Dateipfad ein.");
         string? s = Console.ReadLine();
