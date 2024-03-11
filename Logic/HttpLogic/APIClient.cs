@@ -8,8 +8,10 @@ public class APIClient : IDisposable
     //initialisiert ein API Client zwecks nutzung im weiteren Verfahren
     public APIClient(string baseUri, string client_id, string client_secret)
     {
-        RestClientOptions _options = new($"{baseUri}")
-        { Authenticator = new HttpBasicAuthenticator(client_id, client_secret) };
+        RestClientOptions _options = new(baseUri)
+        { 
+            Authenticator = new HttpBasicAuthenticator(client_id, client_secret) 
+        };
 
         RestClient Client = new(_options);
     }
