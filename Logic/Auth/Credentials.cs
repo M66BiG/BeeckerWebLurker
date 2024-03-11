@@ -1,10 +1,16 @@
 ﻿namespace BeeckerWebLurker.Logic.Auth;
 
+
+/*
+ Klasse um Datei auszuwerten
+ */
 public class Credentials
 {
     public string? client_id;
     public string? client_secret;
 
+
+    //Funktion um client_id und client_secret zu erlangen
     public static Credentials GetCredentials()
     {
         string filepath = GetFilePath();
@@ -30,6 +36,8 @@ public class Credentials
 
         return credentials;
     }
+
+    //Funktion um Dateipfad zu bestimmen
     private static string GetFilePath()
     {
         Console.WriteLine("1: Zuhause\n2: Arbeit\n3: Neuer Dateipfad (custom)");
@@ -44,12 +52,18 @@ public class Credentials
             _ => ""
         };
     }
+
+    //Rekursive Funktion für Custom Dateipfad einzulesen
     private static string CustomFilePath()
     {
+        Console.WriteLine("Bitte tippe den Dateipfad ein.");
         string? s = Console.ReadLine();
 
         if (string.IsNullOrEmpty(s))
+        {
+            Console.WriteLine("Fehler: Es wurde nichts eingetippt.");
             return CustomFilePath();
+        }
         return s;
     }
 }

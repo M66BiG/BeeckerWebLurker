@@ -1,4 +1,8 @@
 ﻿namespace BeeckerWebLurker.Models;
+
+/*
+ Model um lokale Datei auszulesen
+ */
 public class ProjectAuthModel
 {
     public Installed installed { get; set; }
