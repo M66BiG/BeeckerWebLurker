@@ -1,4 +1,4 @@
-﻿namespace BeeckerWebLurker.Logic.User;
+﻿namespace BeeckerWebLurker.Models;
 
 public class Token
 {

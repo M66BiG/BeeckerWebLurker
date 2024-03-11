@@ -5,20 +5,11 @@ public class APIClient : IDisposable
     private readonly RestClientOptions? _options;
     public RestClient? Client;
 
-    /*
-    string response_type = "code";
-    string client_id = "x";
-    string client_secret = "x";
-    string redirect_uri = "youtube.googleapis.com";
-    string scope = "photo+offlince_access";
-    */
-
-
     //initialisiert ein API Client zwecks nutzung im weiteren Verfahren
-    public APIClient(string baseUri)
+    public APIClient(string baseUri, string client_id, string client_secret)
     {
         RestClientOptions _options = new($"{baseUri}")
-        { Authenticator = new HttpBasicAuthenticator("client id placeholder", "client secret placeholder") };
+        { Authenticator = new HttpBasicAuthenticator(client_id, client_secret) };
 
         RestClient Client = new(_options);
     }
@@ -33,7 +24,9 @@ public class APIClient : IDisposable
         Youtube Data eine beliebige Youtube playlist erstellt werden. Diese Lösung soll dann für zukünftige Projekte genutzt werden. 
         */
 
-        APIClient Session = new(Endpoints.baseUri);
+        Credentials credentials = Credentials.GetCredentials();
+        Console.WriteLine("");
+        APIClient Session = new(Endpoints.baseUri, credentials.client_id, credentials.client_secret);
 
 
 
