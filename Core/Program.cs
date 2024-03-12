@@ -1,7 +1,4 @@
-﻿
-using BeeckerWebLurker.Core;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
+﻿using BeeckerWebLurker.Core;
 
 internal class Program
 {
@@ -13,14 +10,15 @@ internal class Program
             try
             {
                 configBuilder.AddEnvironmentVariables()
-                             .AddUserSecrets<Program>();
+                             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true) //fügt appsettings.json hinzu
+                             .AddUserSecrets<Program>(); //implementiert UserSecrets falls vorhanden
             }
             catch
             {
                 // ignore
             }
-        });
+        }).Build();
 
-        await Engine.StartEngine();
+        await Engine.StartEngine(builder);
     }
 }

@@ -5,63 +5,32 @@
  */
 public class Credentials
 {
-    public string? client_id;
-    public string? client_secret;
+    
+    private readonly IConfiguration _configuration;
+
+    public Credentials(IConfiguration configuration)
+    {
+        _configuration = configuration;
+    }
 
     //Funktion um client_id und client_secret zu erlangen
-    public static Credentials GetCredentials()
+    public ProjectAuthModel GetCredentials()
     {
-        Credentials c = new();
-        string filepath = c.GetFilePath(c);
-        string jsonContent = "";
+        var section = _configuration.GetSection("installed") ;
 
-        try
-        { 
-            jsonContent = File.ReadAllText(filepath); 
-        }
-        catch
+        ProjectAuthModel auth = new()
         {
-            throw new Exception();
-            
-        }
-
-        ProjectAuthModel? authModel = JsonConvert.DeserializeObject<ProjectAuthModel>(jsonContent);
-
-        var credentials = new Credentials
-        {
-            client_id = authModel.installed.client_id,
-            client_secret = authModel.installed.client_secret
+            client_id = section["client_id"],
+            client_secret = section["client_secret"]
         };
 
-        return credentials;
-    }
+        if (string.IsNullOrEmpty(auth.client_id) || string.IsNullOrEmpty(auth.client_secret))
+            throw new ArgumentNullException("client_id", "Fehler beim befüllen des Models");
 
-    //Funktion um Dateipfad zu bestimmen
-    private string GetFilePath(Credentials c)
-    {
-        Console.WriteLine("1: Zuhause\n2: Arbeit\n3: Neuer Dateipfad (custom)");
-        int choice = Convert.ToInt32(Console.ReadLine());
 
-        return choice switch
-        {
-            1 => "",
-            2 => "C:/Users/SipahiM/Desktop/clientsecret.json",
-            3 => c.CustomFilePath(),
-            _ => ""
-        };
-    }
+        Console.WriteLine(auth.client_id);
+        Console.WriteLine(auth.client_secret);
 
-    //Rekursive Funktion für Custom Dateipfad einzulesen
-    private string CustomFilePath()
-    {
-        Console.WriteLine("Bitte tippe den Dateipfad ein.");
-        string? s = Console.ReadLine();
-
-        if (string.IsNullOrEmpty(s))
-        {
-            Console.WriteLine("Fehler: Es wurde nichts eingetippt.");
-            return CustomFilePath();
-        }
-        return s;
+        return auth ;
     }
 }

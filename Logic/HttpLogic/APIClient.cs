@@ -18,7 +18,7 @@ public class APIClient
 
 
 
-    public static void StartAuthenticationFlow()
+    public static void StartAuthenticationFlow(ProjectAuthModel auth)
     {
         /* 
         Soll Authentifizierung starten. Die Implementierungsweise bzgl. der Authentifizierung ist egal. Der User wird zum einloggen im Browser aufgefordert.
@@ -26,9 +26,9 @@ public class APIClient
         Youtube Data eine beliebige Youtube playlist erstellt werden. Diese Lösung soll dann für zukünftige Projekte genutzt werden. 
         */
 
-        Credentials credentials = Credentials.GetCredentials();
+        
         Console.WriteLine("");
-        APIClient Session = new(Endpoints.baseUri, credentials.client_id, credentials.client_secret);
+        APIClient Session = new(Endpoints.baseUri, auth.client_id, auth.client_secret);
 
     }
 
