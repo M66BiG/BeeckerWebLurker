@@ -8,12 +8,12 @@ public class APIClient
     //initialisiert ein API Client zwecks nutzung im weiteren Verfahren
     public APIClient(string baseUri, string client_id, string client_secret)
     {
-        RestClientOptions _options = new(baseUri)
-        { 
-            Authenticator = new HttpBasicAuthenticator(client_id, client_secret) 
+        _options = new RestClientOptions(baseUri)
+        {
+            Authenticator = new HttpBasicAuthenticator(client_id, client_secret)
         };
 
-        RestClient Client = new(_options);
+        Client = new RestClient(_options);
     }
 
 
@@ -26,9 +26,12 @@ public class APIClient
         Youtube Data eine beliebige Youtube playlist erstellt werden. Diese Lösung soll dann für zukünftige Projekte genutzt werden. 
         */
 
-        
-        Console.WriteLine("");
+#nullable disable
         APIClient Session = new(Endpoints.baseUri, auth.client_id, auth.client_secret);
+#nullable enable
+
+        
+
 
     }
 

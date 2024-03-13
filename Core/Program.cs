@@ -17,7 +17,20 @@ internal class Program
             {
                 // ignore
             }
+        }).ConfigureServices((hostContext, services) =>
+        {
+            try
+            {
+                //services.AddHostedService<Engine>();
+            }
+            catch
+            {
+                // ignore
+            }
         }).Build();
+
+        
+        
 
         await Engine.StartEngine(builder);
     }
