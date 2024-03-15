@@ -1,26 +1,13 @@
-﻿
-namespace BeeckerWebLurker.Core;
+﻿namespace BeeckerWebLurker.Core;
 
 
-internal class Engine : IHostedService
+public class Engine(IConfiguration Configuration, ILogger<Engine> logger) : IHostedService
 {
-
-    public static async Task StartEngine(ProjectAuthModel authenticationData)
-    {
-        /*In dieser Funktion sollen die relevanten Variablen gespeichert werden, um Aktionen innerhalb des Clients durchzuführen. Ob das nötig ist, oder nicht wird sich im Laufe ergeben*/
-
-        
-
-        
-
-    }
-
     public Task StartAsync(CancellationToken cancellationToken)
     {
-        Console.WriteLine("Programm hier");
+        logger.LogInformation("Placeholder".AddName());
 
-
-        ProjectAuthModel authenticationData = Credentials.GetCredentials();
+        ProjectAuthModel authenticationData = Credentials.GetCredentials(Configuration);
 
         APIClient.StartAuthenticationFlow(authenticationData);
 
@@ -29,8 +16,6 @@ internal class Engine : IHostedService
 
     public Task StopAsync(CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
-
-        
+        return Task.CompletedTask;
     }
 }
