@@ -6,19 +6,32 @@ internal class Program
     {
         var builder = Host.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration((hostContext, configBuilder) =>
-        {
-            try
             {
-                configBuilder.AddEnvironmentVariables()
-                             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true) //fügt appsettings.json hinzu
-                             .AddUserSecrets<Program>(); //implementiert UserSecrets falls vorhanden
-            }
-            catch
+                
+                try
+                {
+                    configBuilder.AddEnvironmentVariables()
+                                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true) //fügt appsettings.json hinzu
+                                 .AddUserSecrets<Program>(); //implementiert UserSecrets falls vorhanden
+                    
+                }
+                catch
+                {
+                    // ignore
+                }
+                
+            })
+            .ConfigureServices(services =>
             {
-                // ignore
-            }
-        }).Build();
+                services.AddHostedService<Engine>()
+                        .AddSingleton<IConfiguration>();
 
-        await Engine.StartEngine(builder);
+            }).Build();
+
+        builder.Run();
+
+        //var cred = ActivatorUtilities.CreateInstance<Credentials>(builder.Services);
+
+        //await Engine.StartEngine(cred.GetCredentials());
     }
 }

@@ -5,18 +5,17 @@
  */
 public class Credentials
 {
-    
     private readonly IConfiguration _configuration;
 
     public Credentials(IConfiguration configuration)
     {
         _configuration = configuration;
     }
-
     //Funktion um client_id und client_secret zu erlangen
-    public ProjectAuthModel GetCredentials()
+    public static ProjectAuthModel GetCredentials()
     {
-        var section = _configuration.GetSection("installed") ;
+
+        var section = _configuration.GetSection("installed");
 
         ProjectAuthModel auth = new()
         {
