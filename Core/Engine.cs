@@ -10,7 +10,6 @@ public class Engine(IConfiguration Configuration, ILogger<Engine> logger) : IHos
         ProjectAuthModel authenticationData = Credentials.GetCredentials(Configuration);
 
         APIClient.StartAuthenticationFlow(authenticationData);
-    }
 
         return Task.CompletedTask;
     }
