@@ -1,22 +1,22 @@
-﻿using Microsoft.Extensions.Logging;
-using System;
-
-namespace BeeckerWebLurker.Core;
+﻿namespace BeeckerWebLurker.Core;
 
 
-internal class Engine
+public class Engine(IConfiguration Configuration, ILogger<Engine> logger) : IHostedService
 {
-
-    public static async Task StartEngine(IHost builder) 
+    public Task StartAsync(CancellationToken cancellationToken)
     {
-        /*In dieser Funktion sollen die relevanten Variablen gespeichert werden, um Aktionen innerhalb des Clients durchzuführen. Ob das nötig ist, oder nicht wird sich im Laufe ergeben*/
+        logger.LogInformation("Placeholder".AddName());
 
-
-        var cred = ActivatorUtilities.CreateInstance<Credentials>(builder.Services);
-
-        ProjectAuthModel authenticationData = cred.GetCredentials();
+        ProjectAuthModel authenticationData = Credentials.GetCredentials(Configuration);
 
         APIClient.StartAuthenticationFlow(authenticationData);
     }
 
+        return Task.CompletedTask;
+    }
+
+    public Task StopAsync(CancellationToken cancellationToken)
+    {
+        return Task.CompletedTask;
+    }
 }

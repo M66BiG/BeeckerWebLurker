@@ -2,36 +2,34 @@
 
 internal class Program
 {
-    private static async Task Main(string[] args)
+    private static void Main(string[] args)
     {
+        Log.Logger = new LoggerConfiguration()
+            .Enrich.FromLogContext()
+            .WriteTo.Console()
+            .CreateLogger();
+
         var builder = Host.CreateDefaultBuilder(args)
+            .UseSerilog(Log.Logger)
             .ConfigureAppConfiguration((hostContext, configBuilder) =>
-        {
-            try
             {
-                configBuilder.AddEnvironmentVariables()
-                             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true) //fügt appsettings.json hinzu
-                             .AddUserSecrets<Program>(); //implementiert UserSecrets falls vorhanden
-            }
-            catch
+                try
+                {
+                    configBuilder.AddEnvironmentVariables()
+                                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true) //fügt appsettings.json hinzu
+                                 .AddUserSecrets<Program>(); //implementiert UserSecrets falls vorhanden
+                }
+                catch
+                {
+                    // ignore
+                }
+            })
+            .ConfigureServices(services =>
             {
-                // ignore
-            }
-        }).ConfigureServices((hostContext, services) =>
-        {
-            try
-            {
-                //services.AddHostedService<Engine>();
-            }
-            catch
-            {
-                // ignore
-            }
-        }).Build();
+                services.AddHostedService<Engine>();
 
-        
-        
+            }).Build();
 
-        await Engine.StartEngine(builder);
+        builder.Run();
     }
 }

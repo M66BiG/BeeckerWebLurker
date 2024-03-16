@@ -26,12 +26,8 @@ public class APIClient
         Youtube Data eine beliebige Youtube playlist erstellt werden. Diese Lösung soll dann für zukünftige Projekte genutzt werden. 
         */
 
-#nullable disable
+        Console.WriteLine("");
         APIClient Session = new(Endpoints.baseUri, auth.client_id, auth.client_secret);
-#nullable enable
-
-        
-
 
     }
 
