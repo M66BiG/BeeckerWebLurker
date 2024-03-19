@@ -7,6 +7,8 @@ global using BeeckerWebLurker.Models;
 global using System.Diagnostics;
 global using System.Net.Http;
 global using System.Net.Http.Json;
+global using System.Net;
+global using System.Net.Sockets;
 
 global using RestSharp;
 global using RestSharp.Authenticators;

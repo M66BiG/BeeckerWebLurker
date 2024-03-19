@@ -5,11 +5,11 @@ public class Engine(IConfiguration Configuration, ILogger<Engine> logger) : IHos
 {
     public Task StartAsync(CancellationToken cancellationToken)
     {
-        logger.LogInformation("Placeholder".AddName());
-
         ProjectAuthModel authenticationData = Credentials.GetCredentials(Configuration);
 
         APIClient.StartAuthenticationFlow(authenticationData);
+
+        TcpServer tcpServer = new TcpServer();
 
         return Task.CompletedTask;
     }
