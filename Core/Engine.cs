@@ -9,7 +9,9 @@ public class Engine(IConfiguration Configuration, ILogger<Engine> logger) : IHos
 
         APIClient.StartAuthenticationFlow(authenticationData);
 
-        TcpServer tcpServer = new TcpServer();
+        
+
+        //TcpServer tcpServer = new TcpServer();
 
         return Task.CompletedTask;
     }

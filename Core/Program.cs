@@ -27,8 +27,13 @@ internal class Program
             .ConfigureServices(services =>
             {
                 services.AddHostedService<Engine>();
+                
 
             }).Build();
+
+        
+
+        //httpServerLogic.StartServer(args);
 
         builder.Run();
     }

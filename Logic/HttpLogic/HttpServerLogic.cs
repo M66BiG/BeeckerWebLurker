@@ -1,6 +1,8 @@
-﻿namespace BeeckerWebLurker.Logic.HttpServer;
+﻿using BeeckerWebLurker.Core;
 
-public class HttpSeverLogic
+namespace BeeckerWebLurker.Logic.HttpLogic;
+
+public class HttpServerLogic(ILogger<HttpServerLogic> logger)
 {
     public string BearerToken { get; set; }
 
